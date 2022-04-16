@@ -98,7 +98,7 @@
   background-color: var(--active-bg);
   border-color: var(--active-bg);
   color: var(--active-text);
-  cursor: default;
+  cursor: pointer;
 }
 
 .menu-switch__item.active .item__image-container,
