@@ -88,3 +88,7 @@
   --modal-bg: #231e1b;
   --shadow-color: rgba(0, 0, 0, 0.5);
 }
+
+[data-theme="dark"] .header__logo-img {
+  content: url('../assets/icons/logo-dark.svg');
+}
