@@ -1,8 +1,9 @@
 :root {
   --font-main: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-hero: clamp(2.625rem, 5vw + 1rem, 4.5rem);
-  --font-h2: clamp(2rem, 3.5vw + 0.8rem, 3.75rem);
-  --font-h3: clamp(1.25rem, 1.5vw + 0.5rem, 1.5rem);
+  /* Desktop / 1440 — exact Figma */
+  --font-hero: 4.5rem; /* 72px */
+  --font-h2: 3.75rem; /* 60px */
+  --font-h3: 1.5rem; /* 24px */
   --font-body: 1rem;
   --font-caption: 0.625rem;
 
@@ -18,7 +19,17 @@
   --space-25: 6.25rem;
 
   --container-max: 1440px;
-  --container-padding: clamp(1rem, 3vw, 2.5rem);
+  --container-padding: 40px;
+
+  /* Rhythm — 100px between sections on all control widths */
+  --section-gap: 100px;
+  --hero-pad-block: 100px;
+  --hero-pad-inline: 100px;
+  --footer-pad-block: 100px;
+  --footer-pad-inline: 100px;
+  --footer-gap: 100px;
+  --about-img-height: 590px;
+  --download-stack-gap: 100px;
 
   --radius-sm: 8px;
   --radius-md: 16px;
@@ -91,4 +102,45 @@
 
 [data-theme="dark"] .header__logo-img {
   content: url('../assets/icons/logo-dark.svg');
+}
+
+/*
+  Fluid bridge 768 → 380 for values that actually change in Figma.
+  Section gaps and about image height stay 100 / 590 (same in both frames).
+*/
+@media (max-width: 768px) {
+  :root {
+    --font-hero: clamp(2.625rem, 0.789rem + 7.732vw, 4.5rem); /* 42→72 */
+    --font-h2: clamp(2rem, 0.286rem + 7.216vw, 3.75rem); /* 32→60 */
+    /* h3 stays 24px in Figma on all breakpoints (product titles, prices) */
+
+    --container-padding: clamp(16px, -7.5px + 6.186vw, 40px);
+
+    --hero-pad-block: clamp(60px, 20.8px + 10.309vw, 100px);
+    --hero-pad-inline: clamp(16px, -27.1px + 11.34vw, 60px);
+
+    --footer-pad-block: clamp(60px, 20.8px + 10.309vw, 100px);
+    --footer-pad-inline: clamp(16px, -27.1px + 11.34vw, 60px);
+    --footer-gap: clamp(40px, -18.8px + 15.464vw, 100px);
+
+    --download-stack-gap: clamp(40px, -18.8px + 15.464vw, 100px);
+  }
+}
+
+/* 380 — hard lock to Figma mobile */
+@media (max-width: 380px) {
+  :root {
+    --font-hero: 2.625rem; /* 42px */
+    --font-h2: 2rem; /* 32px */
+    --font-h3: 1.5rem; /* 24px — same as desktop in Figma */
+    --container-padding: 16px;
+    --section-gap: 100px;
+    --hero-pad-block: 60px;
+    --hero-pad-inline: 16px;
+    --footer-pad-block: 60px;
+    --footer-pad-inline: 16px;
+    --footer-gap: 40px;
+    --about-img-height: 590px;
+    --download-stack-gap: 40px;
+  }
 }

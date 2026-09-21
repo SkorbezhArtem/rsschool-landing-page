@@ -23,14 +23,9 @@
 }
 
 @media (max-width: 380px) {
-  .menu-cards__list {
-    grid-template-columns: 1fr;
-  }
-
   .menu-cards__item,
   .menu-card,
   .menu-card__image-container {
-    width: 100%;
     max-width: 100%;
   }
 
@@ -49,7 +44,7 @@
   }
 
   .menu-switch__item {
-    padding: 6px 10px 6px 6px;
+    gap: 15px;
   }
 
   .item__title {
