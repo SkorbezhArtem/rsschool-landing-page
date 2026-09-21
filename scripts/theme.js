@@ -44,6 +44,9 @@ export function initTheme() {
   });
 }
 
+const initialTheme = getPreferredTheme();
+document.documentElement.setAttribute('data-theme', initialTheme);
+
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initTheme);
 } else {

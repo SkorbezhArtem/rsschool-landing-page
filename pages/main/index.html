@@ -5,30 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coffee-house | Main page</title>
-    <script>
-      (function () {
-        const saved = localStorage.getItem('coffee-house-theme');
-        const theme =
-          saved ||
-          (window.matchMedia('(prefers-color-scheme: dark)').matches
-            ? 'dark'
-            : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
-      })();
-    </script>
     <link rel="icon" type="image/png" href="../../assets/favicon.png" />
     <link rel="stylesheet" href="../../styles/modern-normalize.css" />
     <link rel="stylesheet" href="../../styles/variables.css" />
     <link rel="stylesheet" href="../../styles/common.css" />
     <link rel="stylesheet" href="../../styles/theme.css" />
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./media.css" />
+    <link rel="stylesheet" href="../../pages/main/style.css" />
+    <link rel="stylesheet" href="../../pages/main/media.css" />
+    <script type="module" src="../../scripts/theme.js"></script>
   </head>
   <body>
     <div class="container">
       <header class="header">
         <div class="header__logo">
-          <a href="./index.html" class="header__logo-link">
+          <a href="../../pages/main/index.html" class="header__logo-link">
             <img
               src="../../assets/icons/logo.svg"
               alt="header-logo"
@@ -98,7 +88,7 @@
                 </span>
               </button>
               <div class="coffee-menu">
-                <a href="../menu/index.html" class="coffee__menu-link">
+                <a href="../../pages/menu/index.html" class="coffee__menu-link">
                   <span class="coffee-menu__text">Menu</span>
                   <svg
                     width="18"
@@ -164,7 +154,7 @@
                 and those seeking a warm and inviting space to enjoy their
                 favorite beverage.
               </p>
-              <a href="../menu/index.html" class="enjoy-content__btn">
+              <a href="../../pages/menu/index.html" class="enjoy-content__btn">
                 <span class="enjoy-btn__text">Menu</span>
                 <img
                   class="enjoy-btn__image"
@@ -545,6 +535,5 @@
           </div>
         </footer>
     </div>
-    <script type="module" src="../../scripts/theme.js"></script>
   </body>
 </html>

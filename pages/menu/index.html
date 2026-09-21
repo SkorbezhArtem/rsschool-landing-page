@@ -5,30 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coffee-house | Menu page</title>
-    <script>
-      (function () {
-        const saved = localStorage.getItem('coffee-house-theme');
-        const theme =
-          saved ||
-          (window.matchMedia('(prefers-color-scheme: dark)').matches
-            ? 'dark'
-            : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
-      })();
-    </script>
     <link rel="icon" type="image/png" href="../../assets/favicon.png" />
     <link rel="stylesheet" href="../../styles/modern-normalize.css" />
     <link rel="stylesheet" href="../../styles/variables.css" />
     <link rel="stylesheet" href="../../styles/common.css" />
     <link rel="stylesheet" href="../../styles/theme.css" />
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./media.css" />
+    <link rel="stylesheet" href="../../pages/menu/style.css" />
+    <link rel="stylesheet" href="../../pages/menu/media.css" />
+    <script type="module" src="../../scripts/theme.js"></script>
   </head>
   <body>
     <div class="container">
       <header class="header">
         <div class="header__logo">
-          <a href="../main/index.html" class="header__logo-link">
+          <a href="../../pages/main/index.html" class="header__logo-link">
             <img
               src="../../assets/icons/logo.svg"
               alt="header-logo"
@@ -45,15 +35,15 @@
           <nav class="menu">
             <ul class="menu__list">
               <li class="menu__item">
-                <a href="../main/index.html#favorite" class="menu__link"
+                <a href="../../pages/main/index.html#favorite" class="menu__link"
                   >Favorite coffee</a
                 >
               </li>
               <li class="menu__item">
-                <a href="../main/index.html#about" class="menu__link">About</a>
+                <a href="../../pages/main/index.html#about" class="menu__link">About</a>
               </li>
               <li class="menu__item">
-                <a href="../main/index.html#download" class="menu__link"
+                <a href="../../pages/main/index.html#download" class="menu__link"
                   >Mobile app</a
                 >
               </li>
@@ -550,6 +540,5 @@
         </div>
       </div>
     </div>
-    <script type="module" src="../../scripts/theme.js"></script>
   </body>
 </html>
