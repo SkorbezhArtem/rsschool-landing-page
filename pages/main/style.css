@@ -6,7 +6,7 @@
   overflow: hidden;
   box-shadow: 0 4px 12px var(--shadow-color);
   border: 1px solid transparent;
-  padding: 100px;
+  padding: var(--hero-pad-block) var(--hero-pad-inline);
   transition: var(--theme-transition), border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -30,7 +30,7 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: var(--space-10);
   max-width: 530px;
   width: 100%;
   color: var(--text-light);
@@ -38,13 +38,13 @@
 
 .enjoy-container__title {
   margin: 0;
-  font-size: 72px;
+  font-size: var(--font-hero);
   font-weight: 600;
   line-height: 105%;
   color: var(--text-light);
 }
 
-.enjoy-container__title > span {
+.enjoy-container__title>span {
   color: var(--text-accent);
   font-style: italic;
 }
@@ -79,11 +79,11 @@
     color: #1b1715;
   }
 
-  .enjoy-content__btn:hover > .enjoy-btn__text {
+  .enjoy-content__btn:hover>.enjoy-btn__text {
     transform: translateX(-4px);
   }
 
-  .enjoy-content__btn:hover > .enjoy-btn__image {
+  .enjoy-content__btn:hover>.enjoy-btn__image {
     opacity: 1;
     transform: translateX(0);
   }
@@ -103,7 +103,7 @@
 }
 
 .favorite-container {
-  padding-top: clamp(3.75rem, 6vw, 6.25rem);
+  padding-top: var(--section-gap);
 }
 
 .favorite-container__title {
@@ -114,7 +114,7 @@
   color: var(--text-primary);
 }
 
-.favorite-container__title > span {
+.favorite-container__title>span {
   color: var(--text-accent);
   font-style: italic;
 }
@@ -213,26 +213,29 @@
   font-size: var(--font-h3);
   font-weight: 600;
   line-height: 1.25;
+  margin-bottom: 16px;
 }
 
 .slider-desc__text {
   font-size: var(--font-body);
   line-height: 1.5;
-  margin-top: var(--space-4);
+  margin-top: 0;
+  margin-bottom: 16px;
 }
 
 .slider-desc__price {
   font-size: var(--font-h3);
   font-weight: 600;
   line-height: 1.25;
-  margin-top: var(--space-4);
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .slider-pagination {
   display: flex;
   justify-content: center;
-  gap: var(--space-3);
-  margin-top: var(--space-10);
+  gap: 12px;
+  margin-top: 40px;
 }
 
 .slider-pagination__item {
@@ -241,6 +244,15 @@
   background-color: var(--pagination-bg);
   border-radius: var(--radius-full);
   overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.slider-pagination__item.active {
+  background-color: var(--pagination-active);
+}
+
+.slider-pagination__item.active .line {
+  width: 100%;
 }
 
 .line {
@@ -248,21 +260,22 @@
   height: 100%;
   background-color: var(--pagination-active);
   border-radius: var(--radius-full);
-  transition: width 0.1s linear;
+  transition: width 0.1s linear, background-color 0.3s ease;
 }
 
 .about-container {
-  padding-top: clamp(3.75rem, 6vw, 6.25rem);
+  padding-top: var(--section-gap);
 }
 
 .about-container__title {
   font-size: var(--font-h2);
   font-weight: 600;
   line-height: 1.25;
+  letter-spacing: -0.17px;
   color: var(--text-primary);
 }
 
-.about-container__title > span {
+.about-container__title>span {
   color: var(--text-accent);
   font-style: italic;
 }
@@ -297,7 +310,7 @@
 }
 
 .item1 {
-  height: 590px;
+  height: var(--about-img-height);
   grid-row: span 5;
 }
 
@@ -312,7 +325,7 @@
 }
 
 .item4 {
-  height: 590px;
+  height: var(--about-img-height);
   grid-row: span 5;
 }
 
@@ -321,23 +334,23 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-10);
-  padding-top: clamp(3.75rem, 6vw, 6.25rem);
+  padding-top: var(--section-gap);
 }
 
 .download-container__left {
-  flex: 1 1 380px;
   max-width: 630px;
   min-width: 0;
   color: var(--text-primary);
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--space-10);
 }
 
 .left__title {
   font-size: var(--font-h2);
   font-weight: 600;
   line-height: 1.25;
+  letter-spacing: 0.4px;
 }
 
 .left__title span {
@@ -354,13 +367,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-5);
-  margin-top: var(--space-4);
+  margin-top: 0;
 }
 
 .left-btn {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: 10px;
   width: 200px;
   height: 64px;
   padding: 12px 22px;
@@ -409,17 +422,9 @@
 }
 
 .download-container__right {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1 1 350px;
+  display: block;
   max-width: 630px;
-  min-width: 0;
-}
-
-.download-container__right img {
   width: 100%;
-  max-width: 630px;
   height: auto;
   object-fit: contain;
 }
