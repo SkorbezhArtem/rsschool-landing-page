@@ -6,7 +6,7 @@
   overflow: hidden;
   box-shadow: 0 4px 12px var(--shadow-color);
   border: 1px solid transparent;
-  padding: 100px;
+  padding: var(--space-25);
   transition: var(--theme-transition), border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -30,7 +30,7 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: var(--space-10);
   max-width: 530px;
   width: 100%;
   color: var(--text-light);
@@ -38,7 +38,7 @@
 
 .enjoy-container__title {
   margin: 0;
-  font-size: 72px;
+  font-size: var(--font-hero);
   font-weight: 600;
   line-height: 105%;
   color: var(--text-light);
