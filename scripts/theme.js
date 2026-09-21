@@ -1,6 +1,6 @@
 const THEME_STORAGE_KEY = 'coffee-house-theme';
 
-export function getPreferredTheme() {
+function getPreferredTheme() {
   const saved = localStorage.getItem(THEME_STORAGE_KEY);
   if (saved === 'dark' || saved === 'light') {
     return saved;
@@ -8,7 +8,7 @@ export function getPreferredTheme() {
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
-export function setTheme(theme) {
+function setTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
   localStorage.setItem(THEME_STORAGE_KEY, theme);
 
@@ -22,13 +22,13 @@ export function setTheme(theme) {
   });
 }
 
-export function toggleTheme() {
+function toggleTheme() {
   const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
   const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
   setTheme(nextTheme);
 }
 
-export function initTheme() {
+function initTheme() {
   const currentTheme = document.documentElement.getAttribute('data-theme') || getPreferredTheme();
   setTheme(currentTheme);
 
@@ -52,3 +52,8 @@ if (document.readyState === 'loading') {
 } else {
   initTheme();
 }
+
+window.getPreferredTheme = getPreferredTheme;
+window.setTheme = setTheme;
+window.toggleTheme = toggleTheme;
+window.initTheme = initTheme;
