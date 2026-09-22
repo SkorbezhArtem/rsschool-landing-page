@@ -1,0 +1,146 @@
+:root {
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  /* Desktop / 1440 — exact Figma */
+  --font-hero: 4.5rem; /* 72px */
+  --font-h2: 3.75rem; /* 60px */
+  --font-h3: 1.5rem; /* 24px */
+  --font-body: 1rem;
+  --font-caption: 0.625rem;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-15: 3.75rem;
+  --space-25: 6.25rem;
+
+  --container-max: 1440px;
+  --container-padding: 40px;
+
+  /* Rhythm — 100px between sections on all control widths */
+  --section-gap: 100px;
+  --hero-pad-block: 100px;
+  --hero-pad-inline: 100px;
+  --footer-pad-block: 100px;
+  --footer-pad-inline: 100px;
+  --footer-gap: 100px;
+  --about-img-height: 590px;
+  --download-stack-gap: 100px;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 40px;
+  --radius-full: 100px;
+
+  --bg-body: #e1d4c9;
+  --text-primary: #403f3d;
+  --text-secondary: #403f3d;
+  --text-muted: #665f55;
+  --text-accent: #b0907a;
+  --text-light: #e1d4c9;
+
+  --bg-container: #665f55;
+  --bg-card: #e1d4c9;
+  --bg-card-inner: #e1d4c9;
+  --border-color: #c1b6ad;
+  --border-dark: #665f55;
+  --border-light: #e1d4c9;
+
+  --btn-bg: #e1d4c9;
+  --btn-text: #403f3d;
+  --btn-hover-bg: #665f55;
+  --btn-hover-text: #e1d4c9;
+
+  --active-bg: #665f55;
+  --active-text: #e1d4c9;
+
+  --pagination-bg: #c1b6ad;
+  --pagination-active: #665f55;
+
+  --modal-overlay: rgba(0, 0, 0, 0.6);
+  --modal-bg: #e1d4c9;
+  --shadow-color: rgba(0, 0, 0, 0.25);
+
+  --theme-transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="dark"] {
+  --bg-body: #1b1715;
+  --text-primary: #e1d4c9;
+  --text-secondary: #c1b6ad;
+  --text-muted: #c1b6ad;
+  --text-accent: #d4a373;
+  --text-light: #e1d4c9;
+
+  --bg-container: #2a2421;
+  --bg-card: #231e1b;
+  --bg-card-inner: #2f2824;
+  --border-color: #4a4039;
+  --border-dark: #d4a373;
+  --border-light: #4a4039;
+
+  --btn-bg: #231e1b;
+  --btn-text: #e1d4c9;
+  --btn-hover-bg: #d4a373;
+  --btn-hover-text: #1b1715;
+
+  --active-bg: #d4a373;
+  --active-text: #1b1715;
+
+  --pagination-bg: #3d3530;
+  --pagination-active: #d4a373;
+
+  --modal-overlay: rgba(0, 0, 0, 0.8);
+  --modal-bg: #231e1b;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .header__logo-img {
+  content: url('../assets/icons/logo-dark.svg');
+}
+
+/*
+  Fluid bridge 768 → 380 for values that actually change in Figma.
+  Section gaps and about image height stay 100 / 590 (same in both frames).
+*/
+@media (max-width: 768px) {
+  :root {
+    --font-hero: clamp(2.625rem, 0.789rem + 7.732vw, 4.5rem); /* 42→72 */
+    --font-h2: clamp(2rem, 0.286rem + 7.216vw, 3.75rem); /* 32→60 */
+    /* h3 stays 24px in Figma on all breakpoints (product titles, prices) */
+
+    --container-padding: clamp(16px, -7.5px + 6.186vw, 40px);
+
+    --hero-pad-block: clamp(60px, 20.8px + 10.309vw, 100px);
+    --hero-pad-inline: clamp(16px, -27.1px + 11.34vw, 60px);
+
+    --footer-pad-block: clamp(60px, 20.8px + 10.309vw, 100px);
+    --footer-pad-inline: clamp(16px, -27.1px + 11.34vw, 60px);
+    --footer-gap: clamp(40px, -18.8px + 15.464vw, 100px);
+
+    --download-stack-gap: clamp(40px, -18.8px + 15.464vw, 100px);
+  }
+}
+
+/* 380 — hard lock to Figma mobile */
+@media (max-width: 380px) {
+  :root {
+    --font-hero: 2.625rem; /* 42px */
+    --font-h2: 2rem; /* 32px */
+    --font-h3: 1.5rem; /* 24px — same as desktop in Figma */
+    --container-padding: 16px;
+    --section-gap: 100px;
+    --hero-pad-block: 60px;
+    --hero-pad-inline: 16px;
+    --footer-pad-block: 60px;
+    --footer-pad-inline: 16px;
+    --footer-gap: 40px;
+    --about-img-height: 590px;
+    --download-stack-gap: 40px;
+  }
+}

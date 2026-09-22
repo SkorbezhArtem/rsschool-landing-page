@@ -1,0 +1,139 @@
+@media (max-width: 768px) {
+  .enjoy-container {
+    height: auto;
+    min-height: 644px;
+    padding: var(--hero-pad-block) var(--hero-pad-inline);
+  }
+
+  .enjoy-container__title {
+    font-size: var(--font-hero);
+    line-height: 105%;
+  }
+
+  .enjoy-container__content {
+    max-width: 530px;
+    margin-left: 0;
+  }
+
+  .enjoy-btn__text {
+    transform: translateX(-4px);
+  }
+
+  .enjoy-btn__image {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .favorite-container,
+  .about-container,
+  .download-container {
+    padding-top: var(--section-gap);
+  }
+
+  .about-container__gallery {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-auto-flow: row;
+    height: auto;
+    gap: var(--space-10);
+  }
+
+  .item2,
+  .item3 {
+    display: none;
+  }
+
+  .item1,
+  .item4 {
+    height: var(--about-img-height);
+    grid-row: auto;
+    width: 100%;
+  }
+
+  .download-container {
+    flex-direction: column;
+    gap: var(--download-stack-gap);
+  }
+
+  .download-container__left {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .download-container__right {
+    max-width: 630px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .enjoy-container {
+    height: auto;
+    min-height: 0;
+    padding: var(--hero-pad-block) var(--hero-pad-inline);
+  }
+
+  .enjoy-container__title {
+    font-size: var(--font-hero);
+    line-height: 115%;
+  }
+
+  .enjoy-container__content {
+    max-width: 100%;
+  }
+
+  .favorite-container,
+  .about-container,
+  .download-container {
+    padding-top: var(--section-gap);
+  }
+
+  .download-container {
+    gap: var(--download-stack-gap);
+  }
+
+  .enjoy-content__btn {
+    width: 200px;
+    align-self: flex-start;
+  }
+
+  .main-slide {
+    justify-content: center;
+  }
+
+  .main-slide__btn {
+    display: none;
+  }
+
+  .favorite__view-area {
+    max-width: 100%;
+  }
+
+  .slider-card__img {
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 20px;
+  }
+
+  .slider-desc__title,
+  .slider-desc__price {
+    font-size: 24px;
+    line-height: 125%;
+  }
+
+  .item1,
+  .item4 {
+    height: var(--about-img-height);
+  }
+
+  .left__btns {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .left-btn {
+    width: 200px;
+    flex-shrink: 0;
+  }
+}
