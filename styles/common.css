@@ -112,7 +112,7 @@ video {
   display: flex;
   align-items: center;
   gap: var(--space-10);
-  margin-left: 26.5%;
+  margin-left: 27%;
 }
 
 .menu__link {
@@ -152,7 +152,7 @@ video {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: var(--space-8);
+  gap: var(--space-6);
   margin-left: auto;
   flex-shrink: 0;
 }
