@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 *,
 *::before,
@@ -112,7 +112,7 @@ video {
   display: flex;
   align-items: center;
   gap: var(--space-10);
-  margin-left: 26.5%;
+  margin-left: 27%;
 }
 
 .menu__link {
@@ -129,29 +129,30 @@ video {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 50%;
+  left: 0;
   width: 100%;
   height: 2px;
   background-color: var(--text-primary);
-  transform: translateX(-50%) scaleX(0);
+  transform: scaleX(0);
   transform-origin: center;
   transition: transform 0.3s ease;
+  will-change: transform;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .menu__link:hover::after {
-    transform: translateX(-50%) scaleX(1);
+    transform: scaleX(1);
   }
 }
 
 .menu__link.active::after {
-  transform: translateX(-50%) scaleX(1);
+  transform: scaleX(1);
 }
 
 .header-actions {
   display: flex;
   align-items: center;
-  gap: var(--space-8);
+  gap: var(--space-6);
   margin-left: auto;
   flex-shrink: 0;
 }
@@ -180,18 +181,19 @@ video {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 50%;
+  left: 0;
   width: 100%;
   height: 2px;
   background-color: var(--text-primary);
-  transform: translateX(-50%) scaleX(0);
+  transform: scaleX(0);
   transform-origin: center;
   transition: transform 0.3s ease;
+  will-change: transform;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .coffee__menu-link:hover::after {
-    transform: translateX(-50%) scaleX(1);
+    transform: scaleX(1);
   }
 }
 
@@ -261,16 +263,28 @@ video {
     cursor: pointer;
     background-color: transparent;
     z-index: 10001;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
     flex-shrink: 0;
     margin-left: 0;
   }
 
   .menu__btn:hover {
     border-color: var(--text-accent);
+    background-color: rgba(176, 144, 122, 0.12);
+    box-shadow: 0 0 12px rgba(176, 144, 122, 0.3);
   }
 
-  .menu__btn > span {
+  .menu__btn:hover>span::before,
+  .menu__btn:hover>span::after {
+    background-color: var(--text-accent);
+  }
+
+  [data-theme="dark"] .menu__btn:hover {
+    background-color: rgba(212, 163, 115, 0.15);
+    box-shadow: 0 0 14px rgba(212, 163, 115, 0.4);
+  }
+
+  .menu__btn>span {
     position: relative;
     display: block;
     width: 18px;
@@ -278,8 +292,8 @@ video {
     background-color: transparent;
   }
 
-  .menu__btn > span::before,
-  .menu__btn > span::after {
+  .menu__btn>span::before,
+  .menu__btn>span::after {
     content: '';
     position: absolute;
     left: 0;
@@ -292,20 +306,20 @@ video {
       background-color 0.3s ease;
   }
 
-  .menu__btn > span::before {
+  .menu__btn>span::before {
     top: -4px;
   }
 
-  .menu__btn > span::after {
+  .menu__btn>span::after {
     top: 4px;
   }
 
-  #menu__toggle:checked ~ .menu__btn > span::before {
+  #menu__toggle:checked~.menu__btn>span::before {
     top: 0;
     transform: rotate(45deg);
   }
 
-  #menu__toggle:checked ~ .menu__btn > span::after {
+  #menu__toggle:checked~.menu__btn>span::after {
     top: 0;
     transform: rotate(-45deg);
   }
@@ -332,7 +346,7 @@ video {
       visibility 0.4s ease;
   }
 
-  #menu__toggle:checked ~ .menu {
+  #menu__toggle:checked~.menu {
     right: 0;
     visibility: visible;
   }
@@ -372,7 +386,7 @@ video {
       visibility 0.4s ease;
   }
 
-  #menu__toggle:checked ~ .m-menu__overlay {
+  #menu__toggle:checked~.m-menu__overlay {
     opacity: 1;
     visibility: visible;
   }
@@ -401,7 +415,7 @@ video {
   font-weight: 600;
 }
 
-.footer-container__title > span {
+.footer-container__title>span {
   font-style: italic;
   color: var(--text-accent);
 }

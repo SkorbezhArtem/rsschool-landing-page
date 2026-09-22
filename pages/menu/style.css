@@ -46,7 +46,8 @@
   transition:
     background-color 0.3s ease,
     border-color 0.3s ease,
-    color 0.3s ease;
+    color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -63,6 +64,14 @@
 
   .menu-switch__item:hover .item__title {
     color: var(--btn-hover-text);
+  }
+
+  .menu-switch__item.active:hover {
+    box-shadow: 0 2px 12px rgba(102, 95, 85, 0.35), 0 0 20px rgba(176, 144, 122, 0.3);
+  }
+
+  [data-theme="dark"] .menu-switch__item.active:hover {
+    box-shadow: 0 0 14px rgba(212, 163, 115, 0.4);
   }
 }
 
