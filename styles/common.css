@@ -27,6 +27,10 @@ body {
   transition: var(--theme-transition);
 }
 
+body.lock-scroll {
+  overflow: hidden;
+}
+
 a {
   color: inherit;
   text-decoration: none;
