@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../../pages/main/media.css">
     <script src="../../scripts/theme.js"></script>
     <script src="../../scripts/burger.js" defer></script>
+    <script src="./scripts/slider.js" defer></script>
   </head>
 
   <body>
@@ -213,7 +214,7 @@
             </h2>
             <div class="favorite-container__slider">
               <div class="main-slide">
-                <div class="main-slide__btn arrow-left">
+                <div class="main-slide__btn arrow-left" role="button" aria-label="Previous slide" tabindex="0">
                   <svg
                     width="14"
                     height="14"
@@ -282,7 +283,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="main-slide__btn arrow-right">
+                <div class="main-slide__btn arrow-right" role="button" aria-label="Next slide" tabindex="0">
                   <svg
                     width="14"
                     height="14"
