@@ -249,7 +249,7 @@
   height: 4px;
   padding: 0;
   border: none;
-  display: block;
+  display: flex;
   background-color: var(--pagination-bg);
   border-radius: var(--radius-full);
   overflow: hidden;
@@ -263,6 +263,7 @@
 }
 
 .line {
+  display: block;
   width: 0;
   height: 100%;
   background-color: var(--pagination-active);
