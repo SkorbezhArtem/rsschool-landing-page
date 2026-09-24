@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="../../pages/main/style.css">
     <link rel="stylesheet" href="../../pages/main/media.css">
     <script src="../../scripts/theme.js"></script>
+    <script src="../../scripts/burger.js" defer></script>
+    <script src="./scripts/slider.js" defer></script>
   </head>
 
   <body>
@@ -167,7 +169,7 @@
               </a>
             </div>
           </div>
-          <label class="menu__btn" for="menu__toggle">
+          <label class="menu__btn" for="menu__toggle" role="button" aria-label="Open menu" aria-expanded="false">
             <span></span>
           </label>
         </div>
@@ -210,9 +212,9 @@
             <h2 class="favorite-container__title">
               Choose your <span>favorite</span> coffee
             </h2>
-            <div class="favorite-container__slider">
+            <div class="favorite-container__slider" role="region" aria-label="Coffee slider">
               <div class="main-slide">
-                <div class="main-slide__btn arrow-left">
+                <button class="main-slide__btn arrow-left" type="button" aria-label="Previous slide">
                   <svg
                     width="14"
                     height="14"
@@ -227,7 +229,7 @@
                       stroke-linejoin="round"
                     />
                   </svg>
-                </div>
+                </button>
                 <div class="favorite__view-area">
                   <div class="favorite-slider">
                     <div class="main-slide__card">
@@ -281,7 +283,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="main-slide__btn arrow-right">
+                <button class="main-slide__btn arrow-right" type="button" aria-label="Next slide">
                   <svg
                     width="14"
                     height="14"
@@ -296,18 +298,18 @@
                       stroke-linejoin="round"
                     />
                   </svg>
-                </div>
+                </button>
               </div>
               <div class="slider-pagination">
-                <div class="slider-pagination__item active">
-                  <div class="line"></div>
-                </div>
-                <div class="slider-pagination__item">
-                  <div class="line"></div>
-                </div>
-                <div class="slider-pagination__item">
-                  <div class="line"></div>
-                </div>
+                <button class="slider-pagination__item active" type="button" aria-label="Slide 1">
+                  <span class="line"></span>
+                </button>
+                <button class="slider-pagination__item" type="button" aria-label="Slide 2">
+                  <span class="line"></span>
+                </button>
+                <button class="slider-pagination__item" type="button" aria-label="Slide 3">
+                  <span class="line"></span>
+                </button>
               </div>
             </div>
           </div>

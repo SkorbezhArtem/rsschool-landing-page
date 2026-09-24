@@ -139,6 +139,7 @@
   max-width: 100%;
   display: flex;
   justify-content: center;
+  animation: fadeIn 0.4s ease;
 }
 
 .menu-card {
