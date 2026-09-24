@@ -1,8 +1,24 @@
+const MOBILE_BREAKPOINT = 768;
+const INITIAL_MOBILE_LIMIT = 4;
+
 let products = [];
 let currentCategory = 'coffee';
+let isExpanded = false;
 
 const cardsList = document.querySelector('.menu-cards__list');
 const switchContainer = document.querySelector('.menu-container__switch');
+const loadContainer = document.querySelector('.load-container');
+const loadButton = document.querySelector('.load-arrow');
+
+function getCategoryProducts(category) {
+  const result = [];
+  products.forEach((product, globalIndex) => {
+    if (product.category === category) {
+      result.push({ product, globalIndex });
+    }
+  });
+  return result;
+}
 
 function createCardElement(product, indexWithinCategory, globalIndex) {
   const template = document.createElement('template');
@@ -23,20 +39,47 @@ function createCardElement(product, indexWithinCategory, globalIndex) {
   return template.content.firstElementChild;
 }
 
-function renderCards(category = 'coffee') {
+function updateLoadMoreButton(categoryItemsCount) {
+  if (!loadContainer) return;
+  const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
+  const shouldShow = isMobile && !isExpanded && categoryItemsCount > INITIAL_MOBILE_LIMIT;
+  loadContainer.classList.toggle('invisible', !shouldShow);
+}
+
+function renderCards(category = currentCategory) {
   if (!cardsList) return;
 
-  const fragment = document.createDocumentFragment();
-  let indexWithinCategory = 0;
+  const categoryItems = getCategoryProducts(category);
+  const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
+  const itemsToRender = (isMobile && !isExpanded)
+    ? categoryItems.slice(0, INITIAL_MOBILE_LIMIT)
+    : categoryItems;
 
-  products.forEach((product, globalIndex) => {
-    if (product.category === category) {
-      fragment.appendChild(createCardElement(product, indexWithinCategory, globalIndex));
-      indexWithinCategory++;
-    }
+  const fragment = document.createDocumentFragment();
+  itemsToRender.forEach(({ product, globalIndex }, indexWithinCategory) => {
+    fragment.appendChild(createCardElement(product, indexWithinCategory, globalIndex));
   });
 
   cardsList.replaceChildren(fragment);
+  updateLoadMoreButton(categoryItems.length);
+}
+
+function initLoadMore() {
+  if (!loadButton) return;
+
+  loadButton.addEventListener('click', () => {
+    isExpanded = true;
+    const categoryItems = getCategoryProducts(currentCategory);
+    const remainingItems = categoryItems.slice(INITIAL_MOBILE_LIMIT);
+
+    const fragment = document.createDocumentFragment();
+    remainingItems.forEach(({ product, globalIndex }, offset) => {
+      fragment.appendChild(createCardElement(product, INITIAL_MOBILE_LIMIT + offset, globalIndex));
+    });
+
+    cardsList.appendChild(fragment);
+    updateLoadMoreButton(categoryItems.length);
+  });
 }
 
 function initCategorySwitch() {
@@ -60,6 +103,14 @@ function initCategorySwitch() {
     });
 
     currentCategory = category;
+    isExpanded = false;
+    renderCards(currentCategory);
+  });
+}
+
+function initResizeListener() {
+  const mediaQuery = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`);
+  mediaQuery.addEventListener('change', () => {
     renderCards(currentCategory);
   });
 }
@@ -77,6 +128,8 @@ async function loadProducts() {
 
 function initMenu() {
   initCategorySwitch();
+  initLoadMore();
+  initResizeListener();
   loadProducts();
 }
 

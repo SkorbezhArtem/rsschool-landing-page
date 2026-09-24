@@ -7,11 +7,6 @@
     margin-bottom: var(--space-8);
   }
 
-  .menu-cards__item:nth-child(n + 5),
-  .menu-card:nth-child(n + 5) {
-    display: none;
-  }
-
   .modal-image {
     display: none;
   }
