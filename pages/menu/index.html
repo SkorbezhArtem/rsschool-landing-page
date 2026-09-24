@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../../pages/menu/media.css">
     <script src="../../scripts/theme.js"></script>
     <script src="../../scripts/burger.js" defer></script>
+    <script src="./scripts/modal.js" defer></script>
     <script src="./scripts/menu.js" defer></script>
   </head>
   <body>
@@ -399,6 +400,34 @@
           </div>
         </div>
       </footer>
+      <div class="overlay invisible" role="dialog" aria-modal="true" aria-labelledby="card-description__title">
+        <div class="modal">
+          <div class="modal-image">
+            <img src="" alt="" id="modal-img">
+          </div>
+          <div class="modal-text">
+            <h3 class="card-description__title" id="card-description__title"></h3>
+            <p class="card-description__text" id="card-description__text"></p>
+
+            <p class="size">Size</p>
+            <div class="menu-container__switch modal-sizes"></div>
+
+            <p class="additives">Additives</p>
+            <div class="menu-container__switch modal-additives"></div>
+
+            <div class="price-container">
+              <h3>Total:</h3>
+              <h3 id="final-price">$0.00</h3>
+            </div>
+            <p class="attention">
+              The cost is not final. Download our mobile app to see the final
+              price and place your order. Earn loyalty points and enjoy your
+              favorite coffee with up to 20% discount.
+            </p>
+            <button class="button" id="close-button" type="button">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

@@ -108,6 +108,28 @@ function initCategorySwitch() {
   });
 }
 
+function handleCardActivation(item) {
+  const product = products[item.dataset.id];
+  if (product && typeof openModal === 'function') {
+    openModal(product, item);
+  }
+}
+
+function initCardsInteraction() {
+  cardsList?.addEventListener('click', (e) => {
+    const item = e.target.closest('.menu-cards__item');
+    if (item) handleCardActivation(item);
+  });
+
+  cardsList?.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const item = e.target.closest('.menu-cards__item');
+    if (!item) return;
+    e.preventDefault();
+    handleCardActivation(item);
+  });
+}
+
 function initResizeListener() {
   const mediaQuery = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`);
   mediaQuery.addEventListener('change', () => {
@@ -129,6 +151,7 @@ async function loadProducts() {
 function initMenu() {
   initCategorySwitch();
   initLoadMore();
+  initCardsInteraction();
   initResizeListener();
   loadProducts();
 }
