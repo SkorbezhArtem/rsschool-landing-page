@@ -32,6 +32,10 @@ body.lock-scroll {
   overflow: hidden;
 }
 
+body.lock-scroll .enjoy-container {
+  box-shadow: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -239,12 +243,16 @@ video {
 }
 
 @media (max-width: 768px) {
+  .header {
+    position: relative;
+    z-index: 10002;
+  }
+
   .header-actions {
     display: flex;
     align-items: center;
     margin-left: auto;
     margin-right: var(--space-10);
-    z-index: 10001;
   }
 
   .coffee-menu--desktop {
@@ -255,6 +263,7 @@ video {
     display: flex;
     align-items: center;
     margin-top: var(--space-10);
+    margin-bottom: auto;
   }
 
   .menu__btn {
@@ -267,7 +276,7 @@ video {
     border-radius: 50%;
     cursor: pointer;
     background-color: transparent;
-    z-index: 10001;
+    z-index: 10002;
     transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
     flex-shrink: 0;
     margin-left: 0;
@@ -331,23 +340,23 @@ video {
 
   .menu {
     position: fixed;
-    top: 0;
+    top: 80px;
     right: -100%;
     width: 100%;
-    height: 100vh;
-    height: 100dvh;
+    height: calc(100vh - 80px);
+    height: calc(100dvh - 80px);
     background-color: var(--bg-body);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding-top: 100px;
+    justify-content: flex-start;
     padding-inline: var(--space-8);
+    padding-block: clamp(2rem, 5vh, 3.5rem);
     overflow-y: auto;
     z-index: 10000;
     visibility: hidden;
     transition:
-      right 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      right 0.4s cubic-bezier(0.16, 1, 0.3, 1),
       visibility 0.4s ease;
   }
 
@@ -362,6 +371,7 @@ video {
     gap: var(--space-8);
     width: 100%;
     margin: 0;
+    margin-top: auto;
   }
 
   .menu__link,
@@ -378,22 +388,7 @@ video {
   }
 
   .m-menu__overlay {
-    display: block;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(2px);
-    z-index: 9999;
-    opacity: 0;
-    visibility: hidden;
-    transition:
-      opacity 0.4s ease,
-      visibility 0.4s ease;
-  }
-
-  #menu__toggle:checked~.m-menu__overlay {
-    opacity: 1;
-    visibility: visible;
+    display: none;
   }
 }
 
