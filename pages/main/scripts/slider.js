@@ -166,8 +166,10 @@ function initSlider() {
       }
     }
 
-    state.isPaused = false;
-    lastTime = performance.now();
+    if (e.pointerType === 'touch' || !pauseArea.matches(':hover')) {
+      state.isPaused = false;
+      lastTime = performance.now();
+    }
   });
 
   pauseArea.addEventListener('pointercancel', (e) => {
@@ -177,8 +179,10 @@ function initSlider() {
       } catch (_) {}
     }
     isSwiping = false;
-    state.isPaused = false;
-    lastTime = performance.now();
+    if (e.pointerType === 'touch' || !pauseArea.matches(':hover')) {
+      state.isPaused = false;
+      lastTime = performance.now();
+    }
   });
 
   document.addEventListener('visibilitychange', () => {
