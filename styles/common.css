@@ -49,6 +49,7 @@ h5,
 h6,
 p {
   margin: 0;
+  transition: color 0.25s ease;
 }
 
 ul,
@@ -99,10 +100,33 @@ video {
   flex-shrink: 0;
 }
 
+.header__logo-link {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 60px;
+}
+
 .header__logo-img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100px;
   height: 60px;
   object-fit: contain;
+  transition: opacity 0.25s ease;
+}
+
+.header__logo-img--dark {
+  opacity: 0;
+}
+
+[data-theme="dark"] .header__logo-img--light {
+  opacity: 0;
+}
+
+[data-theme="dark"] .header__logo-img--dark {
+  opacity: 1;
 }
 
 .header-menu-container {
@@ -357,7 +381,8 @@ video {
     visibility: hidden;
     transition:
       right 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-      visibility 0.4s ease;
+      visibility 0.4s ease,
+      background-color 0.25s ease;
   }
 
   #menu__toggle:checked~.menu {
