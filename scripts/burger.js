@@ -20,8 +20,8 @@ function initBurger() {
     if (!toggle.checked) return;
     const isLink = menu.contains(e.target) && e.target.closest('a');
     const isOverlay = e.target === overlay;
-    const isThemeToggle = e.target.closest('.theme-toggle');
-    const isOutside = !menu.contains(e.target) && !menuBtn?.contains(e.target) && !isThemeToggle && e.target !== toggle;
+    const isHeader = Boolean(e.target.closest('.header'));
+    const isOutside = !menu.contains(e.target) && !isHeader && e.target !== toggle;
 
     if (isLink || isOverlay || isOutside) {
       setMenuState(false);

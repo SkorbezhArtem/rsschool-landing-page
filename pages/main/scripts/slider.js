@@ -4,6 +4,7 @@ function initSlider() {
   const prevBtn = document.querySelector('.main-slide__btn.arrow-left');
   const nextBtn = document.querySelector('.main-slide__btn.arrow-right');
   const paginationItems = Array.from(document.querySelectorAll('.slider-pagination__item'));
+  const viewArea = document.querySelector('.favorite__view-area');
 
   if (!slider) return;
 
@@ -114,7 +115,7 @@ function initSlider() {
   }
   requestAnimationFrame(tick);
 
-  const pauseArea = sliderContainer || slider;
+  const pauseArea = viewArea || slider;
 
   pauseArea.addEventListener('mouseenter', () => {
     state.isPaused = true;
@@ -123,6 +124,10 @@ function initSlider() {
   pauseArea.addEventListener('mouseleave', () => {
     state.isPaused = false;
     lastTime = performance.now();
+  });
+
+  pauseArea.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
   });
 
   let startX = 0;

@@ -170,6 +170,9 @@
   max-width: 480px;
   overflow: hidden;
   margin-inline: auto;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .favorite-slider {
@@ -202,6 +205,9 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
 .slider-card__desc {

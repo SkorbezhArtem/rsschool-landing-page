@@ -66,7 +66,7 @@
   --modal-bg: #e1d4c9;
   --shadow-color: rgba(0, 0, 0, 0.25);
 
-  --theme-transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  --theme-transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
 [data-theme="dark"] {
@@ -98,10 +98,6 @@
   --modal-overlay: rgba(0, 0, 0, 0.8);
   --modal-bg: #231e1b;
   --shadow-color: rgba(0, 0, 0, 0.5);
-}
-
-[data-theme="dark"] .header__logo-img {
-  content: url('../assets/icons/logo-dark.svg');
 }
 
 /*
